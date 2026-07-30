@@ -1,0 +1,93 @@
+.is-sticky {
+  position: fixed;
+}
+
+.is-sunk {
+  position: absolute;
+  bottom: 0;
+}
+
+.is-sunk-wrapper {
+  position: relative;
+}
+
+
+
+
+
+/*------------------------------------*\
+    AESTHETIC STYLES (NOT REQUIRED)
+\*------------------------------------*/
+
+$color-primary:   #ff7f83;
+$color-secondary: #fdcacb;
+$color-tertiary:  #7d6465;
+
+
+// body {
+//  
+// }
+
+h1, 
+p { 
+  margin-top: 0;
+}
+
+p:last-child { margin-bottom: 0; }
+
+h1 { color: #000; }
+
+
+
+/**
+ * Objects
+ */
+
+.o-grid {
+  align-items: top;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -1.5rem;
+}
+
+  .o-grid__item {
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    width: 100%;
+  }
+
+.o-grid--wide {
+  margin-left: -3rem;
+  
+  > .o-grid__item {
+    padding-left: 3rem;
+  }
+}
+
+
+.o-box {
+  background-color: $color-primary;
+  margin-bottom: 3rem;
+  
+  &:last-child { margin-bottom: 0; }
+}
+
+
+.o-square:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+
+
+/**
+ * Utilities
+ */
+
+.u-1\/2 {
+  width: 50%;
+}

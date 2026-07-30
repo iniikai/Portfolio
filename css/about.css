@@ -1,0 +1,108 @@
+.is-sticky {
+  position: fixed;
+}
+
+.is-sunk {
+  position: absolute;
+  bottom: 0;
+}
+
+.is-sunk-wrapper {
+  position: relative;
+}
+
+.main{
+  padding-left: 2em;
+  padding-right: 2em;
+}
+/*------------------------------------*\
+    AESTHETIC STYLES (NOT REQUIRED)
+\*------------------------------------*/
+h1,
+p {
+  margin-top: 0;
+  line-height: auto;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+h1 {
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: left;
+}
+
+/**
+ * Objects
+ */
+.o-grid {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -1.5rem;
+}
+
+.o-grid__item {
+  box-sizing: border-box;
+  padding-left: 1.5rem;
+  width: 100%;
+}
+
+.o-grid--wide {
+  margin-left: -1.5rem;
+}
+.o-grid--wide > .o-grid__item {
+  padding-left: 1.5rem;
+}
+
+.o-box {
+  background-color: #000000;
+  margin-bottom: 2em;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.o-box:last-child {
+  margin-bottom: 0;
+}
+
+.o-square:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+/**
+ * Utilities
+ */
+.u-1\/2 {
+  width: 50%;
+}
+
+h2, p, .main {
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: left;
+  margin-left: 0;
+}
+
+.experience-list a {
+  text-decoration: none;
+  font-family: inherit;
+  color: #000;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.experience-list a:hover,
+.experience-list a:active,
+.experience-list a:focus {
+  color: #000;
+  outline: none;
+  text-decoration: none;
+}
