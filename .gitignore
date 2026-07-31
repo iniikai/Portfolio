@@ -15,5 +15,11 @@ node_modules/
 .env.*.local
 website_4147d67d/admin/.env.local
 
-# Large binaries (video, design files, oversized PDFs) are tracked via
-# Git LFS instead of being excluded — see .gitattributes.
+# Files over GitHub's 100MB hard push limit. Git LFS was attempted but its
+# batch-upload API is unreachable from this sandbox, so these 4 stay off
+# GitHub and remain served from Bluehost until pushed via LFS from a machine
+# with unrestricted GitHub access.
+img/benjerrys/benjerrysinitial.pdf
+img/birks/Birks Sequence Null_2.mp4
+img/birks/videos/BirksSlides.m4v
+port files/graphiics.sketch
