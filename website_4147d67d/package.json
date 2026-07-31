@@ -1,0 +1,8 @@
+{
+  "name": "curious-paisley",
+  "private": true,
+  "scripts": {
+    "build-images": "node scripts/build-sign-images.js",
+    "build-images:sh": "bash scripts/build-sign-images.sh"
+  }
+}

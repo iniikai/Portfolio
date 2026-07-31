@@ -1,0 +1,695 @@
+/* Proxima Nova – add .woff2 files to fonts/ or use your own hosting */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Full-width layout: nav always spans browser width */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: inherit;
+}
+
+:root {
+    --sticky-nav-height: 3.25rem;
+    --sticky-filters-height: 4rem; /* reserve space so grid doesn’t scroll under bar; JS can set precisely */
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1002;
+    min-height: var(--sticky-nav-height);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem 0.5rem calc(5% + 1rem);
+    border-bottom: 1px solid #ddd;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.nav-brand img {
+    height: 1.5rem;
+    width: auto;
+    display: block;
+}
+
+.content-wrap {
+    flex: 1 1 0;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Protest signs page: intro only as tall as content, so grid sits below with no overlap */
+.content-wrap.content-wrap--top {
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.content-wrap--top {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Home page hero: centered box at quarter width and height of content area */
+.content-wrap .section-hero {
+    width: 25%;
+    height: 25%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.section-hero-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-wrap .section-hero img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font: inherit;
+    font-size: 1rem;
+}
+
+.hero-btn:hover {
+    opacity: 0.9;
+}
+
+/* Narrow width: logo stays centered, text at bottom */
+@media (max-width: 640px) {
+    .content-wrap .section-hero {
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .section-hero-logo-wrap {
+        flex: 1 1 0;
+        min-height: 0;
+        width: 100%;
+    }
+
+    .content-wrap .section-hero img {
+        max-height: 100%;
+    }
+
+    .content-wrap .section-hero h2 {
+        flex-shrink: 0;
+    }
+}
+
+main {
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Two-column intro – same width as signs section so columns align with image edges */
+.intro-two-col {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem 1rem 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.intro-col {
+    flex: 1 1 45%;
+    min-width: 0;
+    max-width: 48%;
+}
+
+.intro-col-english {
+    text-align: left;
+}
+
+.intro-col-farsi {
+    text-align: right;
+}
+
+.intro-two-col h1 {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.intro-two-col p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .intro-two-col {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .intro-col {
+        max-width: 100%;
+        order: 0;
+    }
+
+    .intro-col-english {
+        order: 1;
+    }
+
+    .intro-col-farsi {
+        order: 2;
+        text-align: right;
+    }
+}
+
+/* Sticky filters bar – outside section so grid never scrolls under it */
+.signs-filters-wrapper {
+    position: sticky;
+    top: var(--sticky-nav-height);
+    z-index: 1001;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.signs-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    min-height: var(--sticky-filters-height);
+}
+
+/* Signs grid section – padding-top reserves space so content stays below sticky bar */
+.signs-grid-section {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem 1rem 2rem;
+    padding-top: calc(var(--sticky-filters-height) + 1rem);
+    box-sizing: border-box;
+}
+
+.signs-filters-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.signs-feedback-btn {
+    margin-left: 0.25rem;
+}
+
+.signs-filter {
+    padding: 0.4rem 0.9rem;
+    font: inherit;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.signs-filter:hover {
+    background: #f5f5f5;
+}
+
+.signs-filter.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.sign-card[data-filter-hidden] {
+    display: none;
+}
+
+/* Footer – aligned with image section */
+.site-footer {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1rem 1rem 2rem;
+    box-sizing: border-box;
+    border-top: 1px solid #eee;
+}
+
+.site-footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.site-footer-copyright {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.site-footer-stats {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.site-footer-sep {
+    margin: 0 0.35rem;
+}
+
+@media (max-width: 640px) {
+    nav {
+        padding-left: 0.5rem;
+    }
+
+    .site-footer {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+.signs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .signs-filters-wrapper {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .signs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .signs-grid-section {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .sign-card {
+        height: 14rem;
+    }
+}
+
+.sign-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #fafafa;
+    height: 20rem;
+    position: relative;
+}
+
+.sign-card-select-wrap {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2;
+}
+
+.sign-card-select-wrap input {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: #333;
+}
+
+.sign-card-selected {
+    border-color: #333;
+    box-shadow: 0 0 0 2px #333;
+}
+
+.sign-card img {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.sign-card h4 {
+    flex-shrink: 0;
+    margin: 0.75rem 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sign-card-actions {
+    flex-shrink: 0;
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 1rem 1rem;
+    width: 100%;
+    max-width: 12rem;
+    box-sizing: border-box;
+}
+
+/* Light download buttons with icon + label (PDF / PNG) */
+.sign-card .btn-download {
+    flex: 1;
+    min-width: 0;
+    padding: 0.25rem 0.5rem;
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    text-align: center;
+    box-sizing: border-box;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.sign-card a.btn-download {
+    line-height: inherit;
+}
+
+.sign-card .btn-download::before {
+    content: '';
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+.sign-card .btn-download:hover {
+    background: #e8e8e8;
+    color: #444;
+    border-color: #d0d0d0;
+}
+
+/* PDF selection bar – inline on filters row, right-aligned */
+.pdf-selection-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-left: auto;
+    padding: 0.35rem 0.75rem;
+    background: #333;
+    color: #fff;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+}
+
+.pdf-selection-count {
+    font-weight: 600;
+}
+
+.pdf-download-btn {
+    padding: 0.35rem 1rem;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 9999px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pdf-download-btn:hover {
+    opacity: 0.9;
+}
+
+.pdf-download-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pdf-clear-btn {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+}
+
+.pdf-clear-btn:hover {
+    color: #fff;
+}
+
+/* Text button (link-style) */
+.text-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.text-button:hover {
+    opacity: 0.8;
+}
+
+/* Feedback dialog */
+#feedback-dialog {
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    max-width: 90vw;
+    width: 28rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+#feedback-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#feedback-dialog h2 {
+    margin: 0;
+    padding: 1.25rem 1.5rem 0;
+    font-size: 1.25rem;
+}
+
+#feedback-dialog .dialog-subtitle {
+    margin: 0.5rem 1.5rem 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#feedback-dialog form {
+    padding: 1rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#feedback-dialog textarea {
+    width: 100%;
+    min-height: 10rem;
+    padding: 0.75rem;
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#feedback-dialog .dialog-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+#feedback-dialog .dialog-actions button {
+    padding: 0.5rem 1rem;
+    font: inherit;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+#feedback-dialog .dialog-actions button[type="button"] {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+#feedback-dialog .dialog-actions button[type="submit"] {
+    background: #333;
+    color: #fff;
+    border: none;
+}
+
+#feedback-dialog .dialog-success {
+    padding: 1.5rem 1.5rem 1.5rem;
+}
+
+#feedback-dialog .dialog-success h2 {
+    padding-top: 0;
+}
+
+#feedback-dialog .dialog-success p {
+    margin: 0.5rem 0 1rem;
+    color: #333;
+}
+
+#feedback-dialog .btn-dialog-close {
+    padding: 0.5rem 1rem;
+    font: inherit;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+/* Image modal – full-size view */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+
+.image-modal[hidden] {
+    display: none;
+}
+
+.image-modal-backdrop {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 0.25rem;
+}
+
+.image-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.image-modal-img {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+}

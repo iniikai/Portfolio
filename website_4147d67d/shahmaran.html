@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Shahmaran – Curious Paisley</title>
+	<link rel="icon" href="logo.png" type="image/png">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/shahmaran.css">
+</head>
+
+<body>
+
+	<nav>
+		<a href="index.html" class="nav-brand">
+			<img src="logo.png" alt="Curious Paisley logo">
+			<span>Curious Paisley</span>
+		</a>
+	</nav>
+
+	<div class="content-wrap shahmaran-wrap">
+		<header class="shahmaran-header">
+			<h1>Shahmaran</h1>
+			<p class="shahmaran-subtitle">Pick a topic and learn step by step. Your progress is saved when you log in.</p>
+		</header>
+
+		<div id="shahmaran-topics" class="shahmaran-topics">
+			<!-- Topics loaded from Supabase; placeholder until connected -->
+			<p id="shahmaran-placeholder" class="shahmaran-placeholder">Connect Supabase to load topics.</p>
+		</div>
+
+		<div id="shahmaran-topic-view" class="shahmaran-topic-view" hidden>
+			<div id="shahmaran-steps-container"></div>
+			<nav class="shahmaran-step-nav">
+				<button type="button" id="shahmaran-prev" disabled>Previous</button>
+				<span id="shahmaran-step-counter"></span>
+				<button type="button" id="shahmaran-next">Next</button>
+			</nav>
+		</div>
+	</div>
+
+	<!-- Supabase: load from our server so it works even when CDN is blocked -->
+	<script src="js/shahmaran/supabase.min.js"></script>
+	<script src="js/shahmaran/config.js"></script>
+	<script src="js/shahmaran/app.js"></script>
+
+</body>
+
+</html>

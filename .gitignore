@@ -4,13 +4,16 @@
 
 # Bluehost / cPanel server artifacts — not part of the site
 .ftpquota
-cgi-bin/
 error_log
 
-# Large video files stay on the Bluehost server and are served from there.
-# They exceed GitHub's practical file-size limits and don't belong in git.
-# Deployment must be configured NOT to delete untracked files, or these
-# will be removed from the live site.
-*.mp4
-*.mov
-*.webm
+# Node dependency trees — regenerable via npm/yarn install, never committed.
+node_modules/
+
+# Real secrets — never commit. Only *.example/*.sample env templates are tracked.
+.env
+.env.local
+.env.*.local
+website_4147d67d/admin/.env.local
+
+# Large binaries (video, design files, oversized PDFs) are tracked via
+# Git LFS instead of being excluded — see .gitattributes.

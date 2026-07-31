@@ -1,0 +1,84 @@
+/* Shahmaran page – lives inside the existing site */
+.shahmaran-wrap {
+	max-width: 48rem;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.shahmaran-header {
+	margin-bottom: 2rem;
+}
+
+.shahmaran-header h1 {
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin: 0 0 0.5rem 0;
+}
+
+.shahmaran-subtitle {
+	color: #555;
+	margin: 0;
+}
+
+.shahmaran-topics {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.shahmaran-placeholder {
+	color: #888;
+	font-style: italic;
+}
+
+.shahmaran-topic-card {
+	display: block;
+	padding: 1rem 1.25rem;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	text-decoration: none;
+	color: inherit;
+	transition: background 0.15s, border-color 0.15s;
+}
+
+.shahmaran-topic-card:hover {
+	background: #f5f5f5;
+	border-color: #ccc;
+}
+
+.shahmaran-topic-view {
+	margin-top: 1.5rem;
+}
+
+.shahmaran-step-card {
+	padding: 1.5rem;
+	border-radius: 8px;
+	background: #fafafa;
+	margin-bottom: 1rem;
+}
+
+.shahmaran-step-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.shahmaran-step-nav button {
+	padding: 0.5rem 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	background: #fff;
+}
+
+.shahmaran-step-nav button:hover:not(:disabled) {
+	background: #eee;
+}
+
+.shahmaran-step-nav button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

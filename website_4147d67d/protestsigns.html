@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Protest Signs – Curious Paisley</title>
+	<link rel="icon" href="/logo.png" type="image/png">
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-823405771"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'AW-823405771');
+	</script>
+</head>
+
+<body>
+
+	<nav>
+		<a href="index.html" class="nav-brand">
+			<img src="logo.png" alt="Curious Paisley logo">
+			<span>Curious Paisley</span>
+		</a>
+	</nav>
+
+	<div class="content-wrap content-wrap--top">
+		<section class="intro-two-col" aria-label="Introduction">
+			<div class="intro-col intro-col-english">
+				<h1>Placards for Iranian diaspora protests 2026</h1>
+				<p>Protests are for witnesses, not participants. This site aims to support message clarity and visual consistency for the ongoing Iranian protests across the world. Clear messaging is important to show passersby and media what Iranian victims have gone through and what their current ask is. Visual consistency and readability ensures the protest looks coordinated and serious. Please provide feedback and suggestions as we update this site hourly. <br>Signs are designed for <b>Tabloid</b> (11 x 17 inches, 43.18 x 27.94 cm), and the fonts used are Anton, Libre Baskerville.</p>
+			</div>
+			<div class="intro-col intro-col-farsi" dir="rtl" lang="fa">
+				<h1>پلاکاردهای پیشنهادی برای اعتراضات ۲۰۲۶</h1>
+				<p>اعتراضات برای مشاهده کنندگان است، نه فقط شرکت‌ کنندگان. هدف این ‌سایت حمایت از شفافیت پیام و یکپارچگی بصری برای اعتراضات جاری ایرانیان در سراسر جهان است. شفافیت در پیام‌رسانی برای نشان دادن آنچه بر قربانیان ایرانی گذشته و مطالبات فعلی آن‌ها به رهگذران و رسانه‌ها، حیاتی است. یکپارچگی بصری و خوانایی بالا باعث می‌شود که اعتراضات هماهنگ و جدی به نظر برسند. لطفاً همزمان با به‌روزرسانی ساعتی این سایت، نظرات و پیشنهادات خود را ارائه دهید. <br>پوسترها برای سایز <b>Tabloid</b> (۱۱ در ۱۷ اینچ یا ۲۷.۹۴ در ۴۳.۱۸ سانتی‌متر) طراحی شده‌اند و فونت‌های استفاده شده Anton و Libre Baskerville هستند.</p>
+			</div>
+		</section>
+	</div>
+
+	<div class="signs-filters-wrapper" id="signs-filters-wrapper">
+		<div class="signs-filters" id="signs-filters">
+			<div class="signs-filters-left">
+				<button type="button" class="signs-filter active" data-filter="all">All</button>
+				<button type="button" class="signs-filter" data-filter="flags">Flags</button>
+				<button type="button" class="signs-filter" data-filter="images">Images</button>
+				<button type="button" class="signs-filter" data-filter="farsi">Farsi</button>
+				<button type="button" class="signs-filter" data-filter="english">English</button>
+				<button type="button" class="text-button signs-feedback-btn" id="open-feedback-dialog">Feedback/Placards requests</button>
+			</div>
+			<div id="pdf-selection-bar" class="pdf-selection-bar" hidden>
+				<span class="pdf-selection-count" id="pdf-selection-count">0</span> selected
+				<button type="button" class="pdf-download-btn" id="pdf-download-btn">Download as PDF</button>
+				<button type="button" class="text-button pdf-clear-btn" id="pdf-clear-btn">Clear</button>
+			</div>
+		</div>
+	</div>
+
+	<section class="signs-grid-section" id="signs-grid-section">
+		<div class="signs-grid" id="signs-grid"></div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<span class="site-footer-copyright">© Designed and developed by Curious Paisley</span>
+			<span class="site-footer-stats">
+				Visits: <span id="visit-count">0</span>
+				<span class="site-footer-sep">·</span>
+				Downloads: <span id="download-count">0</span>
+			</span>
+		</div>
+	</footer>
+
+	<div id="image-modal" class="image-modal" role="dialog" aria-modal="true" aria-label="View image" hidden>
+		<div class="image-modal-backdrop">
+			<button type="button" class="image-modal-close" aria-label="Close">&times;</button>
+			<img class="image-modal-img" src="" alt="">
+		</div>
+	</div>
+
+	<dialog id="feedback-dialog">
+		<div id="feedback-dialog-form">
+			<h2>Feedback/Placards requests</h2>
+			<p class="dialog-subtitle">Share your requests or feedback below. We'll read every message.</p>
+			<form id="feedback-form">
+				<textarea name="feedback" rows="8" placeholder="Your message…" required></textarea>
+				<div class="dialog-actions">
+					<button type="button" id="feedback-dialog-cancel">Cancel</button>
+					<button type="submit">Submit</button>
+				</div>
+			</form>
+		</div>
+		<div id="feedback-dialog-success" class="dialog-success" hidden>
+			<h2>Thank you</h2>
+			<p>Your feedback has been submitted successfully. We'll review it soon.</p>
+			<button type="button" id="feedback-dialog-close-success" class="btn-dialog-close">Close</button>
+		</div>
+	</dialog>
+
+	<iframe name="feedback-sender-frame" id="feedback-sender-frame" title="Feedback sender" hidden style="position:absolute;width:0;height:0;border:0;"></iframe>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+	<script src="js/sign-images-data.js"></script>
+	<script src="js/protestsigns.js"></script>
+</body>
+
+</html>
